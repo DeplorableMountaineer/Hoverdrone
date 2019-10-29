@@ -96,8 +96,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveVelocity: {x: -128, y: 0}
-  maxY: -27
-  minY: -383
+  maxY: 180
+  minY: -180
 --- !u!50 &2888474813282172066
 Rigidbody2D:
   serializedVersion: 4
