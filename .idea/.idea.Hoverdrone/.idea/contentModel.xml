@@ -8,7 +8,10 @@
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
           <e p="Drone.cs" t="Include" />
+          <e p="Pipe.cs" t="Include" />
+          <e p="PipeSpawner.cs" t="Include" />
           <e p="Scroller.cs" t="Include" />
+          <e p="Shredder.cs" t="Include" />
         </e>
       </e>
       <e p="Hoverdrone.sln" t="IncludeFlat" />
