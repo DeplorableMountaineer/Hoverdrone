@@ -1,17 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Pipe : MonoBehaviour {
-    [SerializeField] private Vector2 moveVelocity = Vector2.left*0.0625f*48f;
-    [SerializeField] private float maxY = -27;
-    [SerializeField] private float minY = -383;
+    [SerializeField] private Vector2 moveVelocity = 48f*0.0625f*Vector2.left;
 
-    private Rigidbody2D rb;
+    private Rigidbody2D _rb;
 
     // Start is called before the first frame update
     void Start() {
-        rb = GetComponent<Rigidbody2D>();
-        rb.velocity = moveVelocity;
+        _rb = GetComponent<Rigidbody2D>();
+        _rb.velocity = moveVelocity;
     }
 }

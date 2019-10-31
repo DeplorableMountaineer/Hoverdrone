@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PipeSpawner : MonoBehaviour {
@@ -8,7 +7,7 @@ public class PipeSpawner : MonoBehaviour {
 
     [SerializeField] private float minMidpoint = -384;
     [SerializeField] private float maxMidpoint = 384;
-
+    [SerializeField] private float maxHeightDiffMult = 100;
     [SerializeField] private float minHalfGap = 50;
     [SerializeField] private float maxHalfGap = 150;
     [SerializeField] private float pipeHalfHeight = 192;
@@ -17,34 +16,51 @@ public class PipeSpawner : MonoBehaviour {
 
     [SerializeField] private bool spawning = true;
 
+    private float _lastMidpoint = 0;
+
     // Start is called before the first frame update
     void Start() {
-        Random.InitState((int)System.DateTime.Now.Ticks);
+        NewGame();
+    }
+
+    public void NewGame() {
+        FindObjectOfType<Score>().ResetScore();
+        Random.InitState(42);
         if(spawning) {
             StartSpawning();
         }
     }
 
     public void StartSpawning() {
+        StopAllCoroutines();
+        foreach(Pipe pipe in FindObjectsOfType<Pipe>()) {
+            Destroy(pipe.gameObject);
+        }
+
+        Drone d = FindObjectOfType<Drone>();
+        d.transform.position = Vector3.left*151.7f;
+        d.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         spawning = true;
         StartCoroutine(Spawn());
     }
 
-    public void StopSpawning() {
-        spawning = false;
-    }
-
     private IEnumerator Spawn() {
         do {
-            yield return new WaitForSeconds(Random.Range(minSeconds, maxSeconds));
+            float time = Random.Range(minSeconds, maxSeconds);
+            yield return new WaitForSeconds(time);
             float halfGap = Random.Range(minHalfGap, maxHalfGap);
-            float midpoint = Random.Range(minMidpoint + halfGap, maxMidpoint - halfGap);
+            float midpoint = Random.Range(Mathf.Max(minMidpoint + halfGap, _lastMidpoint - time*maxHeightDiffMult),
+                Mathf.Min(maxMidpoint - halfGap, _lastMidpoint + time*maxHeightDiffMult));
             Vector3 pos = new Vector3(transform.position.x, midpoint - halfGap - pipeHalfHeight, transform.position.z);
             Vector3 pos2 = new Vector3(transform.position.x, midpoint + halfGap + pipeHalfHeight, transform.position.z);
 
             if(spawning) {
                 Instantiate(pipePrefab, pos, Quaternion.identity);
-                Instantiate(pipePrefab, pos2, Quaternion.Euler(0, 0, 180));
+                var p = Instantiate(pipePrefab, pos2, Quaternion.identity);
+                p.transform.localScale = new Vector3(p.transform.localScale.x, -p.transform.localScale.y,
+                    p.transform.localScale.z);
+                p.tag = "Pipe";
+                _lastMidpoint = midpoint;
             }
         } while(spawning);
     }

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Scroller : MonoBehaviour {
     [SerializeField] private Vector2 scrollVelocity = Vector2.right*0.03125f;
