@@ -24,7 +24,15 @@ public class PipeSpawner : MonoBehaviour {
     }
 
     public void NewGame() {
+        StopAllCoroutines();
+        foreach(Pipe pipe in FindObjectsOfType<Pipe>()) {
+            Destroy(pipe.gameObject);
+        }
+
         FindObjectOfType<Score>().ResetScore();
+        Drone d = FindObjectOfType<Drone>();
+        d.transform.position = Vector3.left*151.7f;
+        d.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         Random.InitState(42);
         if(spawning) {
             StartSpawning();
@@ -32,15 +40,8 @@ public class PipeSpawner : MonoBehaviour {
     }
 
     public void StartSpawning() {
-        StopAllCoroutines();
-        foreach(Pipe pipe in FindObjectsOfType<Pipe>()) {
-            Destroy(pipe.gameObject);
-        }
-
-        Drone d = FindObjectOfType<Drone>();
-        d.transform.position = Vector3.left*151.7f;
-        d.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         spawning = true;
+        FindObjectOfType<ScoreTrigger>().Resume();
         StartCoroutine(Spawn());
     }
 

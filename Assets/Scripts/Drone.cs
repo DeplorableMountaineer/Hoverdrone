@@ -19,6 +19,7 @@ public class Drone : MonoBehaviour {
     }
 
     private void Die() {
+        FindObjectOfType<ScoreTrigger>().Stop();
         FindObjectOfType<PipeSpawner>().NewGame();
     }
     
