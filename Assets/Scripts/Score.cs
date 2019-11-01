@@ -31,6 +31,11 @@ public class Score : MonoBehaviour {
         return _score;
     }
 
+    public void ResetHighScore() {
+        _highScore = 0;
+        UpdateHighScore();
+    }
+
     public void IncrementScore(int amount = 1) {
         _score += amount;
         UpdateScore();
