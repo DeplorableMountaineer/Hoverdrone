@@ -17,7 +17,7 @@ namespace GameState {
         }
 
         public void Update() {
-            if(Input.anyKeyDown) {
+            if(Input.GetButtonDown("Jump") || Input.GetButtonDown("Cancel")) {
                 Object.FindObjectOfType<Game>().TransitionState("NewGame");
             }
         }
