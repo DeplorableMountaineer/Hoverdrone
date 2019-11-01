@@ -2,15 +2,19 @@
 using UnityEngine;
 
 namespace GameState {
-    class TitleState : IState {
+    class PauseState : IState {
+        private float oldTimeScale;
+
         public void Enter() {
-            Object.FindObjectOfType<Drone>().GetComponent<Rigidbody2D>().simulated = false;
+            oldTimeScale = Time.timeScale;
+            Time.timeScale = 0;
             foreach(GameObject go in GameObject.FindGameObjectsWithTag("Title")) {
                 go.GetComponent<TMP_Text>().enabled = true;
             }
         }
 
         public void Exit() {
+            Time.timeScale = oldTimeScale;
             foreach(GameObject go in GameObject.FindGameObjectsWithTag("Title")) {
                 go.GetComponent<TMP_Text>().enabled = false;
             }
@@ -18,7 +22,7 @@ namespace GameState {
 
         public void Update() {
             if(Input.anyKeyDown) {
-                Object.FindObjectOfType<Game>().TransitionState("NewGame");
+                Object.FindObjectOfType<Game>().TransitionState("Play");
             }
         }
     }

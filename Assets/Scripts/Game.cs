@@ -11,7 +11,8 @@ public class Game : MonoBehaviour {
     void Start() {
         states["Title"] = new TitleState();
         states["Play"] = new PlayState();
-
+        states["NewGame"] = new NewGameState();
+        states["Pause"] = new PauseState();
         TransitionState("Title");
     }
 

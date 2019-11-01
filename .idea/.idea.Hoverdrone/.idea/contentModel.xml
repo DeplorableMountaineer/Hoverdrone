@@ -8,6 +8,8 @@
       <e p="Assets" t="Include">
         <e p="GameState" t="Include">
           <e p="IState.cs" t="Include" />
+          <e p="NewGameState.cs" t="Include" />
+          <e p="PauseState.cs" t="Include" />
           <e p="PlayState.cs" t="Include" />
           <e p="TitleState.cs" t="Include" />
         </e>
