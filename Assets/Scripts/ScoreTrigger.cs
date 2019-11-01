@@ -2,6 +2,7 @@
 
 public class ScoreTrigger : MonoBehaviour {
     [SerializeField] private float speedupRate = 1.014f;
+    [SerializeField] private AudioClip scoreSound;
 
     private Score _score;
     private bool _active = true;
@@ -16,6 +17,7 @@ public class ScoreTrigger : MonoBehaviour {
         if(_active && other.CompareTag("Pipe")) {
             _score.IncrementScore();
             Time.timeScale *= speedupRate;
+            AudioSource.PlayClipAtPoint(scoreSound, Camera.main.transform.position);
         }
     }
 

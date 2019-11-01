@@ -11,6 +11,8 @@ namespace GameState {
             foreach(GameObject go in GameObject.FindGameObjectsWithTag("Title")) {
                 go.GetComponent<TMP_Text>().enabled = true;
             }
+
+            Object.FindObjectOfType<Drone>().MuteDroneSound();
         }
 
         public void Exit() {

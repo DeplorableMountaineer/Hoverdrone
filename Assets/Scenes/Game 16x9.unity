@@ -883,6 +883,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedupRate: 1.014
+  scoreSound: {fileID: 8300000, guid: 612c71302a6bc1d45bfaa3e10be60224, type: 3}
 --- !u!1 &2054866881
 GameObject:
   m_ObjectHideFlags: 0
@@ -1253,6 +1254,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6163399401297712792, guid: c1cbded2ab320a94b89b1162f0cdc8a1,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 7065666217864005896, guid: c1cbded2ab320a94b89b1162f0cdc8a1,
         type: 3}
       propertyPath: m_Name
@@ -1613,21 +1619,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8813650644525427401, guid: a8e3ecabecd77b04790e4351f69c02e3,
-        type: 3}
-      propertyPath: minHalfGap
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 8813650644525427401, guid: a8e3ecabecd77b04790e4351f69c02e3,
-        type: 3}
-      propertyPath: maxHalfGap
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 8813650644525427401, guid: a8e3ecabecd77b04790e4351f69c02e3,
-        type: 3}
-      propertyPath: maxHeightDiffMult
-      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8e3ecabecd77b04790e4351f69c02e3, type: 3}

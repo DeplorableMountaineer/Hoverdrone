@@ -47,9 +47,11 @@ MonoBehaviour:
   maxSeconds: 3
   minMidpoint: -192
   maxMidpoint: 192
-  minHalfGap: 50
-  maxHalfGap: 150
+  maxHeightDiffMult: 40
+  minHalfGap: 35
+  maxHalfGap: 100
   pipeHalfHeight: 192
   pipePrefab: {fileID: 2888474813282172070, guid: a61bd8edd93428346b9c4258b795f2e1,
     type: 3}
   spawning: 1
+  startSpeed: 1
