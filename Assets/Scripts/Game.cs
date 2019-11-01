@@ -35,4 +35,8 @@ public class Game : MonoBehaviour {
         state = newState;
         state.Enter();
     }
+
+    public void Quit() {
+        Application.Quit();
+    }
 }

@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 7065666217864005899}
   - component: {fileID: 7065666217864005892}
   - component: {fileID: 7065666217864005893}
-  - component: {fileID: -7988200739680038524}
   - component: {fileID: -6163399401297712792}
+  - component: {fileID: 4534442735292567856}
   m_Layer: 0
   m_Name: Hoverdrone
   m_TagString: Untagged
@@ -140,71 +140,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathSound: {fileID: 8300000, guid: 54794cb21cd541643b40c0e678ceb9d3, type: 3}
   gravity: 20
---- !u!60 &-7988200739680038524
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7065666217864005896}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4, y: 2}
-    newSize: {x: 4, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.578125, y: -0.109375}
-      - {x: 1.015625, y: -0.078125}
-      - {x: 1.03125, y: 0.03125}
-      - {x: 1, y: 0.0625}
-      - {x: 1.125, y: 0.09375}
-      - {x: 1.796875, y: 0.265625}
-      - {x: 1.828125, y: 0.296875}
-      - {x: 1.828125, y: 0.34375}
-      - {x: 1.796875, y: 0.390625}
-      - {x: 1.6875, y: 0.390625}
-      - {x: 1.515625, y: 0.375}
-      - {x: 1.3125, y: 0.3125}
-      - {x: 0.6875, y: 0.1875}
-      - {x: 0.5625, y: 0.171875}
-      - {x: 0.203125, y: 0.203125}
-      - {x: -0.109375, y: 0.203125}
-      - {x: -0.21875, y: 0.171875}
-      - {x: -0.421875, y: 0.078125}
-      - {x: -0.546875, y: 0}
-      - {x: -0.6875, y: -0.015625}
-      - {x: -1.03125, y: -0.046875}
-      - {x: -1.5, y: -0.09375}
-      - {x: -1.625, y: -0.109375}
-      - {x: -1.65625, y: -0.171875}
-      - {x: -1.65625, y: -0.234375}
-      - {x: -1.609375, y: -0.25}
-      - {x: -1.5625, y: -0.25}
-      - {x: -1.171875, y: -0.234375}
-      - {x: -1.03125, y: -0.234375}
-      - {x: -1.203125, y: -0.28125}
-      - {x: -1.25, y: -0.328125}
-      - {x: -1.234375, y: -0.390625}
-      - {x: -0.96875, y: -0.375}
-      - {x: -0.578125, y: -0.28125}
-      - {x: -0.34375, y: -0.3125}
-      - {x: -0.203125, y: -0.5}
-      - {x: -0.09375, y: -0.5}
-      - {x: 0.3125, y: -0.421875}
-      - {x: 0.34375, y: -0.375}
-      - {x: 0.421875, y: -0.1875}
 --- !u!82 &-6163399401297712792
 AudioSource:
   m_ObjectHideFlags: 0
@@ -301,3 +236,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!61 &4534442735292567856
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7065666217864005896}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.11972118}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4, y: 2}
+    newSize: {x: 4, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.0636463, y: 0.5008869}
+  m_EdgeRadius: 0
