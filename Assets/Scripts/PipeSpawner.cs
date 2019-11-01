@@ -16,14 +16,13 @@ public class PipeSpawner : MonoBehaviour {
 
     [SerializeField] private bool spawning = true;
 
+    [SerializeField] private float startSpeed = 1;
+
     private float _lastMidpoint = 0;
 
     // Start is called before the first frame update
-    void Start() {
-        NewGame();
-    }
-
     public void NewGame() {
+        Time.timeScale = startSpeed;
         StopAllCoroutines();
         foreach(Pipe pipe in FindObjectsOfType<Pipe>()) {
             Destroy(pipe.gameObject);
@@ -34,15 +33,17 @@ public class PipeSpawner : MonoBehaviour {
         d.transform.position = Vector3.left*151.7f;
         d.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         Random.InitState(42);
-        if(spawning) {
-            StartSpawning();
-        }
+        StartSpawning();
     }
 
     public void StartSpawning() {
         spawning = true;
         FindObjectOfType<ScoreTrigger>().Resume();
         StartCoroutine(Spawn());
+    }
+
+    public void StopSpawning() {
+        spawning = false;
     }
 
     private IEnumerator Spawn() {

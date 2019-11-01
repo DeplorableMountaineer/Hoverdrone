@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 
 public class ScoreTrigger : MonoBehaviour {
-    private Score _score;
+    [SerializeField] private float speedupRate = 1.014f;
 
+    private Score _score;
     private bool _active = true;
 
     // Start is called before the first frame update
@@ -14,6 +15,7 @@ public class ScoreTrigger : MonoBehaviour {
     private void OnTriggerExit2D(Collider2D other) {
         if(_active && other.CompareTag("Pipe")) {
             _score.IncrementScore();
+            Time.timeScale *= speedupRate;
         }
     }
 

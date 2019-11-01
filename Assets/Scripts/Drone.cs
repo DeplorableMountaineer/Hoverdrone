@@ -20,7 +20,11 @@ public class Drone : MonoBehaviour {
 
     private void Die() {
         FindObjectOfType<ScoreTrigger>().Stop();
-        FindObjectOfType<PipeSpawner>().NewGame();
+        foreach(Pipe p in FindObjectsOfType<Pipe>()) {
+            p.GetComponent<Rigidbody2D>().simulated = false;
+        }
+
+        FindObjectOfType<PipeSpawner>().StopSpawning();
+        Object.FindObjectOfType<Game>().TransitionState("Title");
     }
-    
 }

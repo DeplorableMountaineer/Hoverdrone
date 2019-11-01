@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Pipe
+  - Score
+  - High Score
+  - Title
   layers:
   - Default
   - TransparentFX

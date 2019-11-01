@@ -18,7 +18,7 @@ public class Score : MonoBehaviour {
 
         _scoreText = GetComponent<TMP_Text>();
         foreach(TMP_Text t in FindObjectsOfType<TMP_Text>()) {
-            if(t != _scoreText) {
+            if(t.CompareTag("High Score")) {
                 _highScoreText = t;
                 break;
             }
